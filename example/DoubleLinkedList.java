@@ -1,5 +1,6 @@
 package org.example;
 
+
 // homework
 public class DoubleLinkedList implements ListInterface {
 
@@ -7,27 +8,16 @@ public class DoubleLinkedList implements ListInterface {
     Node tail;
     int size;
 
-    static class Node {
-        int elem;
-        Node next;
-        Node previous;
-
-        Node(int elem) {
-            this.elem = elem;
-            next = null;
-            previous = null;
-        }
-    }
     DoubleLinkedList(){}
 
-    DoubleLinkedList(int[] elements){
-        for (int c: elements) {
+    DoubleLinkedList(Integer[] elements){
+        for (Integer c: elements) {
             add(c);
         }
     }
 
     @Override
-    public void add(int elem) {
+    public void add(Integer elem) {
         Node elemToAdd = new Node(elem);
         size++;
         if(isEmpty()) {
@@ -42,7 +32,7 @@ public class DoubleLinkedList implements ListInterface {
     }
 
     @Override
-    public void add(int index, int elem) {
+    public void add(int index, Integer elem) {
         if (size < index || index < 0) {
             throw new IndexOutOfBoundsException();
         }
@@ -134,7 +124,7 @@ public class DoubleLinkedList implements ListInterface {
     }
 
     @Override
-    public int findByIndex(int index) {
+    public Integer findByIndex(int index) {
         int cnt = 0;
         if (size < index) {
             throw new IndexOutOfBoundsException();
@@ -180,4 +170,9 @@ public class DoubleLinkedList implements ListInterface {
         return toReturn;
     }
 
+
+//    @Override
+//    public Iterator<T> iterator() {
+//        return new DoubleLinkedListIterator<>(this);
+//    }
 }
